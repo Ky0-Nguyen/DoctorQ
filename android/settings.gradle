@@ -1,0 +1,3 @@
+rootProject.name = 'DoctorQDemo'
+
+include ':app'
