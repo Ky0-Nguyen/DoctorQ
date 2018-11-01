@@ -1,22 +1,16 @@
 import React from 'react'
-import { Scene, Router } from 'react-native-router-flux'
-import Home from './Home'
-import Detail from './Detail'
+import { Router } from 'react-native-router-flux'
 
 import 'rxjs'
 import { Provider, connect } from 'react-redux'
 import store from './Controller/Redux/Store'
-
+import scenes from './Common/globalGroutes'
+const RouterWithRedux = connect()(Router)
 export default class App extends React.Component {
   render () {
     return (
       <Provider store={store}>
-        <Router>
-          <Scene key="root">
-            <Scene key="home" component={Home} title="Home" initial/>
-            <Scene key="detail" component={Detail} title="Detail"/>
-          </Scene>
-        </Router>
+        <RouterWithRedux scenes={scenes}/>
       </Provider>
     )
   }
